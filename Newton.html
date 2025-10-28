@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lugar de Estudio - Newton</title>
+    <!-- Carga de Tailwind CSS para el estilo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración para usar la fuente Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Gris claro de fondo */
+        }
+
+        /* ESTILOS DEL DINAMÓMETRO */
+        #dinamometro-spring {
+            transition: height 0.3s ease-out, transform 0.3s ease-out;
+            transform-origin: top;
+            /* Estilo de resorte simple (patrón de rayas para simular el resorte) */
+            background: repeating-linear-gradient(
+                to bottom,
+                #6b7280,
+                #6b7280 2px,
+                #d1d5db 2px,
+                #d1d5db 4px
+            );
+            border-radius: 4px;
+        }
+
+        #dinamometro-body {
+            /* Estilo de la carcasa del dinamómetro */
+            border: 2px solid #1f2937;
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tick-mark {
+            height: 1px;
+            background-color: #1f2937;
+            position: absolute;
+            left: 5%;
+            right: 5%;
+        }
+    </style>
+    <!-- Configuración de Tailwind para usar un font limpio -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+<body class="p-4 sm:p-8">
+
+    <!-- VISTA PRINCIPAL (Contenido de la Lección) -->
+    <div id="main-content" class="block">
+        <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden p-6 sm:p-10">
+
+            <!-- Título Principal -->
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-indigo-700 mb-10 border-b-4 border-indigo-200 pb-3">
+                Newton
+            </h1>
+            
+            <!-- Título del Tema -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+                Newton
+            </h2>
+
+            <!-- Sección: ¿Qué es un newton? -->
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 border-l-4 border-indigo-500 pl-3">
+                    ¿Qué es un newton?
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    El <strong class="font-bold">newton (N)</strong> se define como la unidad de fuerza en el Sistema Internacional (<strong class="font-bold">SI</strong>) y es la fuerza necesaria para acelerar un objeto de 1 kilogramo (<strong class="font-bold">kg</strong>) a razón de 1 metro por segundo al cuadrado (<strong class="font-bold">m/s²</strong>).
+                </p>
+            </section>
+
+            <!-- Sección: ¿Cuál es su unidad de expresión básica? -->
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 border-l-4 border-indigo-500 pl-3">
+                    ¿Cuál es su unidad de expresión básica?
+                </h3>
+                
+                <!-- Recuadro Azul con la Fórmula -->
+                <div class="flex justify-center my-6">
+                    <div class="bg-blue-500 rounded-xl shadow-2xl p-2 sm:p-3">
+                        <div class="bg-white rounded-lg p-4 sm:p-6 shadow-inner">
+                            <div class="flex items-center justify-center font-extrabold text-3xl sm:text-4xl text-gray-900">
+                                N = 
+                                <div class="ml-4 flex flex-col items-center">
+                                    <span class="text-3xl sm:text-4xl">Kg * m</span>
+                                    <hr class="w-full h-1 bg-gray-900 border-0 my-0.5">
+                                    <span class="text-3xl sm:text-4xl">S²</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leyenda de la Fórmula -->
+                <ul class="text-gray-600 space-y-1 mt-4 ml-4 list-disc">
+                    <li><strong class="font-semibold">N</strong> = Newton</li>
+                    <li><strong class="font-semibold">Kg</strong> = Kilogramo</li>
+                    <li><strong class="font-semibold">m</strong> = Metros</li>
+                    <li><strong class="font-semibold">S²</strong> = segundos al cuadrado</li>
+                </ul>
+            </section>
+
+            <!-- Sección: ¿Con qué aparato se miden los Newtons? -->
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 border-l-4 border-indigo-500 pl-3">
+                    ¿Con qué aparato se miden los Newtons?
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Un Newton (N) se mide con un <strong class="font-bold">dinamómetro</strong>, que es un instrumento diseñado para medir la magnitud de las fuerzas. Los dinamómetros pueden ser mecánicos (básicamente un resorte graduado) o electrónicos y funcionan basándose en la <strong class="font-bold">Ley de Hooke</strong>, la cual relaciona la deformación de un muelle con la fuerza aplicada.
+                </p>
+            </section>
+
+            <!-- Sección: ¿Cómo funciona un dinamómetro? -->
+            <section class="mb-10">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 border-l-4 border-indigo-500 pl-3">
+                    ¿Cómo funciona un dinamómetro?
+                </h3>
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <div class="md:w-full">
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Basa su funcionamiento en el estiramiento de un resorte que sigue la ley de elasticidad de Hooke en el rango de medición. Al igual que una báscula con muelle elástico, es una balanza de resorte, pero no debe confundirse con una balanza de platillos (instrumento utilizado para comparar masas).
+                        </p>
+                        
+                        <!-- Botón para ir al simulador (llama a la función showSimulator) -->
+                        <button onclick="showSimulator()"
+                           class="w-full sm:w-auto px-6 py-3 bg-orange-500 text-white font-bold rounded-full shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105 active:scale-95 text-center">
+                            Probar Simulador de Dinamómetro
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- La sección original del simulador ahora se ha movido a simulator-view -->
+
+        </div>
+    </div>
+
+    <!-- VISTA DEL SIMULADOR (Inicialmente oculta) -->
+    <div id="simulator-view" class="hidden p-4 sm:p-8">
+        <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden p-6 sm:p-10">
+            
+            <!-- Botón de regreso -->
+            <button onclick="showMain()"
+                class="mb-8 flex items-center px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-150">
+                <span class="text-xl mr-2">←</span> Volver a la Lección
+            </button>
+
+            <!-- Contenido del Simulador -->
+            <section class="pt-2">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 border-l-4 border-orange-500 pl-3">
+                    Simulador de Dinamómetro (Cálculo de Peso)
+                </h3>
+                <div class="w-full max-w-lg mx-auto bg-gray-100 shadow-xl rounded-xl p-6 space-y-6">
+
+                    <!-- Controles de Entrada -->
+                    <section class="space-y-6">
+                        <label for="mass-slider" class="block text-lg font-medium text-gray-700">
+                            Masa del Objeto (kg): <span id="mass-value" class="font-mono text-indigo-600">0.0</span> kg
+                        </label>
+                        <input type="range" id="mass-slider" min="0" max="10" step="0.1" value="0.0"
+                               class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer range-lg">
+
+                        <!-- Mostrar el Peso (Fuerza) Calculado -->
+                        <div class="p-4 bg-indigo-100 border-l-4 border-indigo-500 rounded-lg">
+                            <p class="text-sm font-medium text-indigo-700">
+                                Peso (Fuerza de Gravedad):
+                                <span id="weight-value" class="text-2xl font-extrabold ml-2 text-indigo-800">0.00</span> N
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Simulación del Dinamómetro -->
+                    <section class="flex flex-col items-center mt-8">
+                        <h2 class="text-xl font-semibold mb-4 text-gray-700">Dinamómetro Virtual</h2>
+
+                        <!-- Carcasa del Dinamómetro -->
+                        <div id="dinamometro-body" class="w-20 h-64 relative overflow-hidden p-1">
+                            <!-- Zona de Escala (Marcas de Newtons) -->
+                            <div class="absolute inset-0 z-0">
+                                <!-- Las marcas de la escala están calibradas visualmente para el peso máximo de ~98.1N -->
+                                <div class="tick-mark w-2/5 right-5" style="top: 10%;"></div><span class="absolute right-1 text-xs text-gray-700" style="top: 8%;">98 N</span>
+                                <div class="tick-mark w-2/5 right-5" style="top: 30%;"></div><span class="absolute right-1 text-xs text-gray-700" style="top: 28%;">80 N</span>
+                                <div class="tick-mark w-2/5 right-5" style="top: 50%;"></div><span class="absolute right-1 text-xs text-gray-700" style="top: 48%;">60 N</span>
+                                <div class="tick-mark w-2/5 right-5" style="top: 70%;"></div><span class="absolute right-1 text-xs text-gray-700" style="top: 68%;">40 N</span>
+                                <div class="tick-mark w-2/5 right-5" style="top: 90%;"></div><span class="absolute right-1 text-xs text-gray-700" style="top: 88%;">20 N</span>
+
+                                <!-- Cero de la escala (Ajustado para 0kg = 0N) -->
+                                <div class="tick-mark w-full" style="top: 5%;"></div><span class="absolute left-1 text-xs text-gray-700" style="top: 3%;">0 N</span>
+                            </div>
+
+                            <!-- Simulación del Resorte -->
+                            <div id="dinamometro-spring" class="absolute top-[5%] left-1/4 w-1/2 bg-gray-600" style="height: 10px;">
+                                <!-- El resorte se extiende hacia abajo, su altura representa la fuerza. -->
+                            </div>
+
+                            <!-- Enganche/Gancho del objeto -->
+                            <div id="object-hook" class="absolute left-1/2 transform -translate-x-1/2 w-6 h-4 bg-gray-800 rounded-b-lg shadow-md" style="top: 5%;"></div>
+
+                        </div>
+
+                        <!-- Representación del Objeto -->
+                        <div id="weighed-object" class="mt-4 p-4 bg-gray-400 rounded-lg shadow-xl text-white font-bold text-center border-b-8 border-gray-600"
+                            style="min-width: 80px; transition: transform 0.3s ease-out;">
+                            Objeto
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Script para el simulador interactivo y la navegación -->
+    <script>
+        // --- Funciones de Navegación ---
+        function showSimulator() {
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('simulator-view').classList.remove('hidden');
+            // Aseguramos que el simulador se inicialice o actualice correctamente al mostrarse
+            calculateWeight(); 
+        }
+
+        function showMain() {
+            document.getElementById('simulator-view').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            // Opcional: Volver al inicio de la página principal
+            window.scrollTo(0, 0); 
+        }
+
+        // --- Lógica del Dinamómetro (Sin cambios funcionales) ---
+        const massSlider = document.getElementById('mass-slider');
+        const massValueSpan = document.getElementById('mass-value');
+        const weightValueSpan = document.getElementById('weight-value');
+        const springDiv = document.getElementById('dinamometro-spring');
+        const bodyDiv = document.getElementById('dinamometro-body');
+        const weighedObjectDiv = document.getElementById('weighed-object');
+        const hookDiv = document.getElementById('object-hook');
+
+        const GRAVITY = 9.81; // Aceleración de la gravedad de la Tierra en m/s²
+        const BODY_HEIGHT = 256; 
+        const INITIAL_TOP_PERCENT = 0.05; 
+        const INITIAL_TOP_PX = BODY_HEIGHT * INITIAL_TOP_PERCENT; 
+        const MAX_MASS_KG = 10.0; 
+        const MAX_FORCE_N = MAX_MASS_KG * GRAVITY; 
+        const MAX_EXTENSION_PX = BODY_HEIGHT * 0.85; 
+
+        function calculateWeight() {
+            const mass = parseFloat(massSlider.value);
+            massValueSpan.textContent = mass.toFixed(1);
+
+            const weight = mass * GRAVITY;
+            weightValueSpan.textContent = weight.toFixed(2); 
+
+            const normalizedForce = weight / MAX_FORCE_N; 
+            
+            let springExtension = MAX_EXTENSION_PX * normalizedForce;
+            
+            const MIN_SPRING_HEIGHT = 10; 
+            springExtension = Math.max(springExtension, MIN_SPRING_HEIGHT);
+            
+            springDiv.style.height = `${springExtension}px`;
+            
+            const hookOffset = hookDiv.clientHeight / 2;
+            const hookPosition = INITIAL_TOP_PX + springExtension - hookOffset;
+            
+            const maxHookPosition = BODY_HEIGHT - hookDiv.clientHeight;
+            const finalHookPosition = Math.min(hookPosition, maxHookPosition);
+            
+            hookDiv.style.top = `${finalHookPosition}px`;
+            
+            const initialHookTop = INITIAL_TOP_PX - hookOffset;
+            const objectDisplacement = finalHookPosition - initialHookTop; 
+            
+            weighedObjectDiv.style.transform = `translateY(${objectDisplacement}px)`;
+        }
+
+        // Event Listeners
+        massSlider.addEventListener('input', calculateWeight);
+
+        // Inicializar la simulación al cargar
+        window.onload = () => {
+            // Asegura que la función se ejecute al inicio, independientemente de qué vista se muestre primero (aunque 'main-content' es visible por defecto)
+            calculateWeight();
+        }
+    </script>
+</body>
+</html>
